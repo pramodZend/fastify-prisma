@@ -15,6 +15,25 @@ fastify.get('/', async (request, reply) => {
     reply.send(allPosts);
   });
 
+  //get single user record
+  fastify.get('/user/:id', async (request, reply) => {
+    
+        const { id } = request.params;
+        const user   = await prisma.user.findUnique({
+            where:{ id:Number(id) }
+            // include:{
+            //     post:true
+            // },
+        });
+        console.log('Unique records',user);
+        reply.send(user);
+  });
+
+  fastify.post('/user', async (req, res) => {
+    const job = await prisma.user.create({ data: req.body });
+    res.json(job);
+  });
+
 const startServer = async()=>{
     try{
         await fastify.listen(PORT);
