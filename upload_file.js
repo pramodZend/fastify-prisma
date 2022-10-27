@@ -130,3 +130,22 @@ exports.upload_file = async (ur_id, files, callback)=>{
     else
         callback(ERR_MSG.INVALID_FILE_TYPE);
 }
+
+/*
+checkMimeType(mimeType,originalname){
+    let isAllow;
+    let mimetype = mimeType;
+		let allowedMimeType = ['image/png', 'image/jpg', 'image/jpeg', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+		let extension 	=	['jpg','jpeg','png','pdf','doc','docx','JPG','JPEG','PNG','PDF','DOC','DOCX']
+		if (mimetype){
+			let fileExtension = originalname.split('.').pop(-1);
+			console.log(fileExtension);
+			console.log(mimetype);
+			if (extension.includes(fileExtension)) {
+				isAllow = allowedMimeType.includes(mimetype)
+			} else { isAllow = false; }
+			return isAllow ;
+		} else return true;
+	}
+};
+*/
